@@ -110,9 +110,9 @@ class Methods
   }
 };
 
-int main() {
-    // Write C++ code here
-    Methods m;
+void init(Methods &m)
+{
+
     uint32_t dat=0;
     uint32_t loc = 0;
     m.append(1);
@@ -125,6 +125,14 @@ int main() {
     cin>>loc;
     m.addAtloc(loc,dat);
     m.print();
+}
+Methods m;
+int main() {
+    // Write C++ code here
+    
+    uint32_t dat=0;
+    uint32_t loc = 0;
+    init(m);
     loc = 0;
     dat = -6;
     m.addAfterloc(loc,dat);
