@@ -95,7 +95,13 @@ class Methods
       }
       return len;
   }
-  
+  void insertAtHead(int dat)
+  {
+      Node *temp = new Node();
+      temp->data = dat;
+      temp->link = root;
+      root = temp;
+  }
   void print()
   {
       Node* temp;
@@ -137,6 +143,11 @@ int main() {
     dat = -6;
     m.addAfterloc(loc,dat);
     m.print();
+    
+    cout<<"Inserting at head"<<endl;
+    m.insertAtHead(-9);
+    m.print();
+    cout<<"Length of  LL:"<<m.length()<<endl;
     
     
     return 0;
