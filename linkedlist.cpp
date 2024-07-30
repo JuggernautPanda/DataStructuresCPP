@@ -38,6 +38,51 @@ class Methods
           p->link = temp;
       }
   }
+  void addAtloc(uint32_t loc,int dat)
+  {
+      if(loc>=length())
+      {
+          cout<<"impossible to add at that location as length=" <<length()<<endl;
+      }
+      else
+      {
+          Node* temp = root;
+          len = 0;
+          while(len++<loc)
+          {
+              temp = temp->link;
+          }
+          
+          temp->data = dat;
+          temp = temp->link; // may have no effect.
+      }
+  }
+  
+  void addAfterloc (uint32_t loc,int dat)
+  {
+      int temp_var = 0;
+    cout<<"adding after location :"<<loc<<endl;
+      if(loc>=length())
+      {
+          cout<<"impossible to add at that location as length=" <<length()<<endl;
+      }
+      else
+      {
+          Node* temp = root;
+          len = 0;
+          while(len++<loc)
+          {
+              temp = temp->link;
+          }
+          
+       Node* newNode = new Node();
+        newNode->data = dat;
+        newNode->link = temp->link;
+        temp->link = newNode;
+          
+      }
+  }
+  
   uint32_t length()
   {
       len = 0;
@@ -55,11 +100,13 @@ class Methods
   {
       Node* temp;
       temp = root;
+      cout<<"Linked list elements are"<<endl;
       while(temp!=NULL)
       {
-          cout<<temp->data<<endl;
+          cout<<temp->data<<"\t";
           temp=temp->link;
       }
+      cout<<endl;
   }
 };
 
@@ -67,10 +114,22 @@ int main() {
     // Write C++ code here
     Methods m;
     uint32_t dat=0;
-    cout<<"value to append:"<<endl;
-    cin>>dat;
-    m.append(dat);
+    uint32_t loc = 0;
+    m.append(1);
+    m.append(-2);
     cout<<"Length of  LL:"<<m.length()<<endl;
     m.print();
+    cout<<"value to add:"<<endl;
+    cin>>dat;
+    cout<<"location to add:"<<endl;
+    cin>>loc;
+    m.addAtloc(loc,dat);
+    m.print();
+    loc = 0;
+    dat = -6;
+    m.addAfterloc(loc,dat);
+    m.print();
+    
+    
     return 0;
 }
