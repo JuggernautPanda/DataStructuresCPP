@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 class Base {
+    //private, protected and public are the concepts of encapsulation
 private:
     string Name;
     int age;
@@ -36,7 +37,7 @@ public:
     }
     
 };
-
+//Derived class can inherit all the methods/variables that are "public" to parent class Base
 class Derived : public Base {
 public:
     //Example of constructor of derived class with that of parent
